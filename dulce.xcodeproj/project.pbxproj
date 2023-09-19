@@ -46,6 +46,7 @@
 		91858F972AB9E9C100A5CC5E /* dulceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dulceUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		91D0465A2AB9F90B00C502C3 /* _todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
 		91D0465B2AB9FA6100C502C3 /* code.bas */ = {isa = PBXFileReference; lastKnownFileType = text; path = code.bas; sourceTree = "<group>"; };
+		91D0465C2ABA168800C502C3 /* dulce.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = dulce.key; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +77,9 @@
 		91858F6E2AB9E9BF00A5CC5E = {
 			isa = PBXGroup;
 			children = (
-				91D0465B2AB9FA6100C502C3 /* code.bas */,
 				91D0465A2AB9F90B00C502C3 /* _todo.txt */,
+				91D0465C2ABA168800C502C3 /* dulce.key */,
+				91D0465B2AB9FA6100C502C3 /* code.bas */,
 				91858F792AB9E9BF00A5CC5E /* dulce */,
 				91858F8A2AB9E9C100A5CC5E /* dulceTests */,
 				91858F942AB9E9C100A5CC5E /* dulceUITests */,

@@ -1,4 +1,5 @@
-* Dulce code walkthrough / transliteration
+
+* Dulce code walkthrough
 * SOUND statement
 * Shift Register
 
