@@ -1,2 +1,6 @@
-#  <#Title#>
+* Dulce code walkthrough / transliteration
+* SOUND statement
+* Shift Register
 
+
+DULC-23-01: 9/19/23 - Introducing Dulce
