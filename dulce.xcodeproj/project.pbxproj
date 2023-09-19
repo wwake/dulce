@@ -14,6 +14,7 @@
 		91858F8C2AB9E9C100A5CC5E /* dulceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91858F8B2AB9E9C100A5CC5E /* dulceTests.swift */; };
 		91858F962AB9E9C100A5CC5E /* dulceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91858F952AB9E9C100A5CC5E /* dulceUITests.swift */; };
 		91858F982AB9E9C100A5CC5E /* dulceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91858F972AB9E9C100A5CC5E /* dulceUITestsLaunchTests.swift */; };
+		91D0465E2ABA222300C502C3 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0465D2ABA222300C502C3 /* Notes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		91D0465A2AB9F90B00C502C3 /* _todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
 		91D0465B2AB9FA6100C502C3 /* code.bas */ = {isa = PBXFileReference; lastKnownFileType = text; path = code.bas; sourceTree = "<group>"; };
 		91D0465C2ABA168800C502C3 /* dulce.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = dulce.key; sourceTree = "<group>"; };
+		91D0465D2ABA222300C502C3 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				91858F7C2AB9E9BF00A5CC5E /* ContentView.swift */,
 				91858F7E2AB9E9C100A5CC5E /* Assets.xcassets */,
 				91858F802AB9E9C100A5CC5E /* Preview Content */,
+				91D0465D2ABA222300C502C3 /* Notes.swift */,
 			);
 			path = dulce;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				91858F7D2AB9E9BF00A5CC5E /* ContentView.swift in Sources */,
 				91858F7B2AB9E9BF00A5CC5E /* dulceApp.swift in Sources */,
+				91D0465E2ABA222300C502C3 /* Notes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
