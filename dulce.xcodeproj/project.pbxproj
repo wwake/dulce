@@ -16,6 +16,8 @@
 		91858F982AB9E9C100A5CC5E /* dulceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91858F972AB9E9C100A5CC5E /* dulceUITestsLaunchTests.swift */; };
 		91D0465E2ABA222300C502C3 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0465D2ABA222300C502C3 /* Notes.swift */; };
 		91D046602ABB6D6800C502C3 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0465F2ABB6D6800C502C3 /* SoundPlayer.swift */; };
+		91D046632ABB890400C502C3 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91D046622ABB890400C502C3 /* AudioKit */; };
+		91D046652ABB891500C502C3 /* MyMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D046642ABB891500C502C3 /* MyMidi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		91D0465C2ABA168800C502C3 /* dulce.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = dulce.key; sourceTree = "<group>"; };
 		91D0465D2ABA222300C502C3 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		91D0465F2ABB6D6800C502C3 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		91D046642ABB891500C502C3 /* MyMidi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMidi.swift; sourceTree = "<group>"; };
+		91D046662ABB8CF800C502C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91D046632ABB890400C502C3 /* AudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,12 +109,14 @@
 		91858F792AB9E9BF00A5CC5E /* dulce */ = {
 			isa = PBXGroup;
 			children = (
+				91D046662ABB8CF800C502C3 /* Info.plist */,
 				91858F7A2AB9E9BF00A5CC5E /* dulceApp.swift */,
 				91858F7C2AB9E9BF00A5CC5E /* ContentView.swift */,
 				91858F7E2AB9E9C100A5CC5E /* Assets.xcassets */,
 				91858F802AB9E9C100A5CC5E /* Preview Content */,
 				91D0465D2ABA222300C502C3 /* Notes.swift */,
 				91D0465F2ABB6D6800C502C3 /* SoundPlayer.swift */,
+				91D046642ABB891500C502C3 /* MyMidi.swift */,
 			);
 			path = dulce;
 			sourceTree = "<group>";
@@ -155,6 +162,9 @@
 			dependencies = (
 			);
 			name = dulce;
+			packageProductDependencies = (
+				91D046622ABB890400C502C3 /* AudioKit */,
+			);
 			productName = dulce;
 			productReference = 91858F772AB9E9BF00A5CC5E /* dulce.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +237,9 @@
 				Base,
 			);
 			mainGroup = 91858F6E2AB9E9BF00A5CC5E;
+			packageReferences = (
+				91D046612ABB890400C502C3 /* XCRemoteSwiftPackageReference "AudioKit" */,
+			);
 			productRefGroup = 91858F782AB9E9BF00A5CC5E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,6 +286,7 @@
 				91858F7B2AB9E9BF00A5CC5E /* dulceApp.swift in Sources */,
 				91D046602ABB6D6800C502C3 /* SoundPlayer.swift in Sources */,
 				91D0465E2ABA222300C502C3 /* Notes.swift in Sources */,
+				91D046652ABB891500C502C3 /* MyMidi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +453,7 @@
 				DEVELOPMENT_TEAM = 7B9VB3YTHK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dulce/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -468,6 +483,7 @@
 				DEVELOPMENT_TEAM = 7B9VB3YTHK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dulce/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -602,6 +618,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		91D046612ABB890400C502C3 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		91D046622ABB890400C502C3 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91D046612ABB890400C502C3 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91858F6F2AB9E9BF00A5CC5E /* Project object */;
 }

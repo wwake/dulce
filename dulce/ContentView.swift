@@ -5,19 +5,22 @@ struct ContentView: View {
   let tone = 10
   let player = SoundPlayer()
 
+  let melodyString: UInt8 = 3
+  let myMidi = MyMidi()
+
   @State private var tempo: Int = 1
   @State private var strumsPerLoop: Int = 3
   @State private var input: String = ""
 
   @State private var lastNote: Character? = nil
 
-  func sound(_ channel: Int, _ note: UInt8, _ tone: Int, _ volume: Int) {
+  func sound(_ channel: UInt8, _ note: UInt8, _ tone: Int, _ volume: Int) {
     print("sound \(channel): \(note) tone=\(tone) vol=\(volume)")
-    if channel == 3 {
-      player.startPlayer()
-      player.sound(note)
-      _ = player.play(60)
-    }
+    myMidi.start()
+//      if note == 0 && tone == 0 && volume == 0 { return }
+//    player.sound(channel: 192+channel, note: 68)
+//    player.sound(channel: channel, note: note, volume: 127)
+//      _ = player.play(120)
   }
 
   func LE(_ strum: Int) -> Int {
@@ -40,14 +43,14 @@ struct ContentView: View {
 //          (0...tempo).forEach { wait in
 //            let key = lastNote
 //            if key != nil && key != escape {
-//              sound(3, Notes.fretNumberToNote[key!]!, 10, strumVolume + 3)
+//              sound(melodyString, Notes.fretNumberToNote[key!]!, 10, strumVolume + 3)
 //            }
 //          }
         }
 
         sound(0, 0, 0, 0)
         sound(2, 0, 0, 0)
-        sound(3, 0, 0, 0)
+        sound(melodyString, 0, 0, 0)
 
         lastNote = escape
       }
@@ -67,19 +70,22 @@ struct ContentView: View {
       TextField("Play Here", text: $input)
         .onKeyPress(keys: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]) { oneKey in
           lastNote = oneKey.characters.first!
-          sound(3, Notes.fretNumberToNote[lastNote!]!, 10, 6 + 3) // was dur
+          sound(melodyString, Notes.fretNumberToNote[lastNote!]!, 10, 6 + 3) // was dur
 
           return .handled
         }
         .onKeyPress(phases: .up) { press in
           lastNote = nil
-          sound(3, 0, 0, 0)
+          sound(melodyString, 0, 0, 0)
           return .handled
         }
 
       Button("Go") {
         play()
       }
+    }
+    .onAppear {
+      player.start()
     }
     .padding()
   }

@@ -31,7 +31,6 @@ public class SoundPlayer {
 
   var sequence: MusicSequence! = nil
   var track: MusicTrack! = nil
-
 //  static func make(_ symbols: [Symbol]) -> SoundPlayer {
 //    instance.deleteExistingPlayer()
 //    instance.configureNewPlayer(Self.toNoteInfo(symbols))
@@ -73,7 +72,7 @@ public class SoundPlayer {
     }
   }
 
-  func startPlayer() {
+  func start() {
     status = 0
     status |= NewMusicPlayer(&musicPlayer)
     status |= NewMusicSequence(&sequence)
@@ -87,41 +86,15 @@ public class SoundPlayer {
     )
   }
 
-  // call startPlayer
-  // sound(note)
-  // call play
-
-  func sound(_ note: UInt8) {
+  func sound(channel: UInt8, note: UInt8, volume: UInt8 = 64) {
     var noteMessage = MIDINoteMessage(
-      channel: 0,
+      channel: channel,
       note: note,
-      velocity: 64,
+      velocity: volume,
       releaseVelocity: 0,
-      duration: 0.3
+      duration: 1.0
     )
-    status |= MusicTrackNewMIDINoteEvent(track, 0, &noteMessage)
-  }
-
-  func configureNewPlayer(_ notes: [NoteInfo]) {
-    startPlayer()
-
-    for noteInfo in notes {
-      switch noteInfo {
-      case .note(let midiNoteInfo):
-        var note = MIDINoteMessage(
-          channel: 0,
-          note: midiNoteInfo.note,
-          velocity: 64,
-          releaseVelocity: 0,
-          duration: midiNoteInfo.duration
-        )
-        status |= MusicTrackNewMIDINoteEvent(track, midiNoteInfo.time, &note)
-
-      case .stop(let stopTime):
-        var eventData = MusicEventUserData(length: 1, data: 0)
-        status = MusicTrackNewUserEvent(track, stopTime, &eventData)
-      }
-    }
+    status |= MusicTrackNewMIDINoteEvent(track, 1.0, &noteMessage)
   }
 
   func setSpeed(bpm: Double) -> SoundState {
