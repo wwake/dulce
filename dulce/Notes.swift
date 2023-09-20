@@ -12,9 +12,17 @@ public class Notes {
     "\n":50, "\'":47    // last 2 entries were return & caps
   ]
 
-  static var fretNumberToNote: [Int: Int] = [
-    0: 162,
-    1: 144
+  static var fretNumberToNote: [Character: UInt8] = [
+    "0": 66,
+    "1": 68,
+    "2": 70,
+    "3": 71,
+    "4": 73,
+    "5": 75,
+    "6": 76,
+    "7": 78,
+    "8": 80,
+    "9": 82
   ]
 }
 

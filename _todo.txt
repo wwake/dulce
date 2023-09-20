@@ -1,7 +1,9 @@
 
-* Dulce code walkthrough
-* SOUND statement
-* Shift Register
-
+* Make keys play actual sound
+* Set up background drones
 
 DULC-23-01: 9/19/23 - Introducing Dulce
+* Dulce code walkthrough
+* SOUND statement
+* Look at Shift Register
+* Draft 1 of code - realized we have to move from polled to event-driven
