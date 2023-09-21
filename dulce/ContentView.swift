@@ -1,9 +1,16 @@
 import SwiftUI
 
+enum FocusedField {
+  case keyboard
+}
+
 struct ContentView: View {
   let escape: Character = "\u{1B}"
   let tone = 10
 
+  let bassDrone = 0
+  let middleDrone1 = 1
+  let middleDrone2 = 2
   let melodyString = 3
   let myMidi = MyMidi()
 
@@ -13,13 +20,10 @@ struct ContentView: View {
 
   @State private var lastNote: Character? = nil
 
+  @FocusState private var focusedField: FocusedField?
+
   func soundOff(_ channel: Int, note: UInt8, _ tone: Int, _ volume: Int) {
     myMidi.noteOff(channel: channel, note: note)
-  }
-
-  func sound(_ channel: Int, _ note: UInt8, _ tone: Int, _ volume: Int) {
-    print("sound \(channel): \(note) tone=\(tone) vol=\(volume)")
-    myMidi.noteOn(channel: channel, note: note)
   }
 
   func LE(_ strum: Int) -> Int {
@@ -27,12 +31,16 @@ struct ContentView: View {
   }
 
   fileprivate func playDrones(_ strumVolume: Int) {
-    sound(0, 163, tone, strumVolume)
-    sound(1, 243, tone, strumVolume)
-    sound(2, 161, tone, strumVolume)
+    myMidi.noteOn(channel: bassDrone, note: 48, volume: 64)
+    myMidi.noteOn(channel: middleDrone1, note: 55, volume: 64)
+    myMidi.noteOn(channel: middleDrone2, note: 55, volume: 64)
+//    sound(0, 163, tone, strumVolume)
+//    sound(1, 243, tone, strumVolume)
+//    sound(2, 161, tone, strumVolume)
   }
   
   func play() {
+    return
     while lastNote != escape {
       (1...strumsPerLoop).forEach { strum in
 
@@ -74,10 +82,11 @@ struct ContentView: View {
           }
           lastNote = oneKey.characters.first!
           let note = Notes.fretNumberToNote[lastNote!]!
-          myMidi.noteOn(channel: melodyString, note: note)
+          myMidi.noteOn(channel: melodyString, note: note, volume: 127)
 
           return .handled
         }
+        .focused($focusedField, equals: FocusedField.keyboard)
         .onKeyPress(phases: .up) { press in
           if lastNote != nil {
             soundOff(melodyString, note: Notes.fretNumberToNote[lastNote!]!, 0, 0)
@@ -90,8 +99,10 @@ struct ContentView: View {
         play()
       }
     }
+    .defaultFocus($focusedField, .keyboard)
     .onAppear {
       myMidi.start()
+      playDrones(64)
     }
     .padding()
   }

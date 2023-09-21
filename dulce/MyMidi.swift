@@ -50,11 +50,11 @@ public class MyMidi {
     checkError(osstatus: AUGraphStart(processingGraph!))
   }
 
-  func noteOn(channel: Int, note: UInt8) {
+  func noteOn(channel: Int, note: UInt8, volume: Int) {
     print("+ \(note)@\(channel)")
     let noteCommand = UInt32(0x90 | channel)
     let pitch = UInt32(note)
-    checkError(osstatus: MusicDeviceMIDIEvent(self.midisynthUnit!, noteCommand, pitch, UInt32(self.midiVelocity), 0))
+    checkError(osstatus: MusicDeviceMIDIEvent(self.midisynthUnit!, noteCommand, pitch, UInt32(volume), 0))
   }
 
   func noteOff(channel: Int, note: UInt8) {
