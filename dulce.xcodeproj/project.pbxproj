@@ -15,7 +15,6 @@
 		91858F962AB9E9C100A5CC5E /* dulceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91858F952AB9E9C100A5CC5E /* dulceUITests.swift */; };
 		91858F982AB9E9C100A5CC5E /* dulceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91858F972AB9E9C100A5CC5E /* dulceUITestsLaunchTests.swift */; };
 		91D0465E2ABA222300C502C3 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0465D2ABA222300C502C3 /* Notes.swift */; };
-		91D046602ABB6D6800C502C3 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0465F2ABB6D6800C502C3 /* SoundPlayer.swift */; };
 		91D046632ABB890400C502C3 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91D046622ABB890400C502C3 /* AudioKit */; };
 		91D046652ABB891500C502C3 /* MyMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D046642ABB891500C502C3 /* MyMidi.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +51,6 @@
 		91D0465B2AB9FA6100C502C3 /* code.bas */ = {isa = PBXFileReference; lastKnownFileType = text; path = code.bas; sourceTree = "<group>"; };
 		91D0465C2ABA168800C502C3 /* dulce.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = dulce.key; sourceTree = "<group>"; };
 		91D0465D2ABA222300C502C3 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
-		91D0465F2ABB6D6800C502C3 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		91D046642ABB891500C502C3 /* MyMidi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMidi.swift; sourceTree = "<group>"; };
 		91D046662ABB8CF800C502C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,7 +113,6 @@
 				91858F7E2AB9E9C100A5CC5E /* Assets.xcassets */,
 				91858F802AB9E9C100A5CC5E /* Preview Content */,
 				91D0465D2ABA222300C502C3 /* Notes.swift */,
-				91D0465F2ABB6D6800C502C3 /* SoundPlayer.swift */,
 				91D046642ABB891500C502C3 /* MyMidi.swift */,
 			);
 			path = dulce;
@@ -284,7 +281,6 @@
 			files = (
 				91858F7D2AB9E9BF00A5CC5E /* ContentView.swift in Sources */,
 				91858F7B2AB9E9BF00A5CC5E /* dulceApp.swift in Sources */,
-				91D046602ABB6D6800C502C3 /* SoundPlayer.swift in Sources */,
 				91D0465E2ABA222300C502C3 /* Notes.swift in Sources */,
 				91D046652ABB891500C502C3 /* MyMidi.swift in Sources */,
 			);

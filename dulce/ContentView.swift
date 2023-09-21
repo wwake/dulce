@@ -3,7 +3,6 @@ import SwiftUI
 struct ContentView: View {
   let escape: Character = "\u{1B}"
   let tone = 10
-  let player = SoundPlayer()
 
   let melodyString: UInt8 = 3
   let myMidi = MyMidi()
@@ -69,8 +68,13 @@ struct ContentView: View {
       }
       TextField("Play Here", text: $input)
         .onKeyPress(keys: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]) { oneKey in
+          if lastNote != nil {
+            let note = Notes.fretNumberToNote[lastNote!]!
+            myMidi.noteOff(note: note)
+          }
           lastNote = oneKey.characters.first!
-          sound(melodyString, Notes.fretNumberToNote[lastNote!]!, 10, 6 + 3) // was dur
+          let note = Notes.fretNumberToNote[lastNote!]!
+          myMidi.noteOn(note: note)
 
           return .handled
         }
@@ -88,7 +92,6 @@ struct ContentView: View {
     }
     .onAppear {
       myMidi.start()
-    //  player.start()
     }
     .padding()
   }

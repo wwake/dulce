@@ -51,6 +51,7 @@ public class MyMidi {
   }
 
   func noteOn(note: UInt8) {
+    print("+ \(note)")
     let noteCommand = UInt32(0x90 | midiChannel)
 //    let base = note - 48
 //    let octaveAdjust = (UInt8(octave) * 12) + base
@@ -60,6 +61,7 @@ public class MyMidi {
   }
 
   func noteOff(note: UInt8) {
+    print("- \(note)")
     let channel = UInt32(0)
     let noteCommand = UInt32(0x80 | channel)
 //    let base = note - 48
@@ -77,10 +79,4 @@ public class MyMidi {
   func sound(channel: UInt8, note: UInt8, volume: UInt8 = 64) {
     noteOn(note: note)
   }
-
-  // midi.createVirtualOutputPorts()
-  //midi.openOutput(index: 0)
-  //    midi.openOutput()
-  //    midi.sendNoteOnMessage(noteNumber: 64, velocity: 127, channel: 3)
-
 }
