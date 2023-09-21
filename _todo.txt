@@ -1,6 +1,11 @@
-
-* Make keys play actual sound
 * Set up background drones
+
+DULC-23-03: 9/21/23 - MIDI "Fun"
+* Make keys play actual sound - using MIDI approach 3
+
+DULC-23-02: 9/20/23 - Playing a Melody
+* Tried pulling out midi init so it doesn't restart on each note, but that didn't work for the music player
+* Tried AudioKit project, couldn't get a sound
 
 DULC-23-01: 9/19/23 - Introducing Dulce
 * Dulce code walkthrough

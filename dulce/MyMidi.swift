@@ -50,33 +50,27 @@ public class MyMidi {
     checkError(osstatus: AUGraphStart(processingGraph!))
   }
 
-  func noteOn(note: UInt8) {
-    print("+ \(note)")
-    let noteCommand = UInt32(0x90 | midiChannel)
-//    let base = note - 48
-//    let octaveAdjust = (UInt8(octave) * 12) + base
-    //let pitch = UInt32(octaveAdjust)
+  func noteOn(channel: Int, note: UInt8) {
+    print("+ \(note)@\(channel)")
+    let noteCommand = UInt32(0x90 | channel)
     let pitch = UInt32(note)
     checkError(osstatus: MusicDeviceMIDIEvent(self.midisynthUnit!, noteCommand, pitch, UInt32(self.midiVelocity), 0))
   }
 
-  func noteOff(note: UInt8) {
-    print("- \(note)")
-    let channel = UInt32(0)
+  func noteOff(channel: Int, note: UInt8) {
+    print("- \(note)@\(channel)")
     let noteCommand = UInt32(0x80 | channel)
-//    let base = note - 48
-//    let octaveAdjust = (UInt8(octave) * 12) + base
-  //  let pitch = UInt32(octaveAdjust)
     let pitch = UInt32(note)
-    checkError(osstatus: MusicDeviceMIDIEvent(self.midisynthUnit!,
-                                              noteCommand, pitch, 0, 0))
+    checkError(osstatus: MusicDeviceMIDIEvent(
+      self.midisynthUnit!,
+      noteCommand,
+      pitch,
+      0,
+      0
+    ))
   }
 
   func start() {
     initAudio()
-  }
-
-  func sound(channel: UInt8, note: UInt8, volume: UInt8 = 64) {
-    noteOn(note: note)
   }
 }

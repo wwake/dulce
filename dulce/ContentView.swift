@@ -4,7 +4,7 @@ struct ContentView: View {
   let escape: Character = "\u{1B}"
   let tone = 10
 
-  let melodyString: UInt8 = 3
+  let melodyString = 3
   let myMidi = MyMidi()
 
   @State private var tempo: Int = 1
@@ -13,13 +13,13 @@ struct ContentView: View {
 
   @State private var lastNote: Character? = nil
 
-  func soundOff(_ channel: UInt8, note: UInt8, _ tone: Int, _ volume: Int) {
-    myMidi.noteOff(note: note)
+  func soundOff(_ channel: Int, note: UInt8, _ tone: Int, _ volume: Int) {
+    myMidi.noteOff(channel: channel, note: note)
   }
 
-  func sound(_ channel: UInt8, _ note: UInt8, _ tone: Int, _ volume: Int) {
+  func sound(_ channel: Int, _ note: UInt8, _ tone: Int, _ volume: Int) {
     print("sound \(channel): \(note) tone=\(tone) vol=\(volume)")
-    myMidi.noteOn(note: note)
+    myMidi.noteOn(channel: channel, note: note)
   }
 
   func LE(_ strum: Int) -> Int {
@@ -70,11 +70,11 @@ struct ContentView: View {
         .onKeyPress(keys: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]) { oneKey in
           if lastNote != nil {
             let note = Notes.fretNumberToNote[lastNote!]!
-            myMidi.noteOff(note: note)
+            myMidi.noteOff(channel: melodyString, note: note)
           }
           lastNote = oneKey.characters.first!
           let note = Notes.fretNumberToNote[lastNote!]!
-          myMidi.noteOn(note: note)
+          myMidi.noteOn(channel: melodyString, note: note)
 
           return .handled
         }
