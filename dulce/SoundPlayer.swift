@@ -94,7 +94,8 @@ public class SoundPlayer {
       releaseVelocity: 0,
       duration: 1.0
     )
-    status |= MusicTrackNewMIDINoteEvent(track, 1.0, &noteMessage)
+    let time = Float64(Date().timeIntervalSince1970 * 1000)
+    status |= MusicTrackNewMIDINoteEvent(track, time, &noteMessage)
   }
 
   func setSpeed(bpm: Double) -> SoundState {

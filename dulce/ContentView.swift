@@ -14,13 +14,13 @@ struct ContentView: View {
 
   @State private var lastNote: Character? = nil
 
+  func soundOff(_ channel: UInt8, note: UInt8, _ tone: Int, _ volume: Int) {
+    myMidi.noteOff(note: note)
+  }
+
   func sound(_ channel: UInt8, _ note: UInt8, _ tone: Int, _ volume: Int) {
     print("sound \(channel): \(note) tone=\(tone) vol=\(volume)")
-    myMidi.start()
-//      if note == 0 && tone == 0 && volume == 0 { return }
-//    player.sound(channel: 192+channel, note: 68)
-//    player.sound(channel: channel, note: note, volume: 127)
-//      _ = player.play(120)
+    myMidi.noteOn(note: note)
   }
 
   func LE(_ strum: Int) -> Int {
@@ -48,9 +48,9 @@ struct ContentView: View {
 //          }
         }
 
-        sound(0, 0, 0, 0)
-        sound(2, 0, 0, 0)
-        sound(melodyString, 0, 0, 0)
+//        sound(0, 0, 0, 0)
+//        sound(2, 0, 0, 0)
+        soundOff(melodyString, note: 0, 0, 0)
 
         lastNote = escape
       }
@@ -75,8 +75,10 @@ struct ContentView: View {
           return .handled
         }
         .onKeyPress(phases: .up) { press in
+          if lastNote != nil {
+            soundOff(melodyString, note: Notes.fretNumberToNote[lastNote!]!, 0, 0)
+          }
           lastNote = nil
-          sound(melodyString, 0, 0, 0)
           return .handled
         }
 
@@ -85,7 +87,8 @@ struct ContentView: View {
       }
     }
     .onAppear {
-      player.start()
+      myMidi.start()
+    //  player.start()
     }
     .padding()
   }
