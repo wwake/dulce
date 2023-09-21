@@ -1,7 +1,9 @@
-* Set up background drones
 
 DULC-23-03: 9/21/23 - MIDI "Fun"
 * Make keys play actual sound - using MIDI approach 3
+* Set up background drones
+* Add tremolo to drones - couldn't get pitch bend to work
+* Get a strumming effect
 
 DULC-23-02: 9/20/23 - Playing a Melody
 * Tried pulling out midi init so it doesn't restart on each note, but that didn't work for the music player

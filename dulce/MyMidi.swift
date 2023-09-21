@@ -51,14 +51,12 @@ public class MyMidi {
   }
 
   func noteOn(channel: Int, note: UInt8, volume: Int) {
-    print("+ \(note)@\(channel)")
     let noteCommand = UInt32(0x90 | channel)
     let pitch = UInt32(note)
     checkError(osstatus: MusicDeviceMIDIEvent(self.midisynthUnit!, noteCommand, pitch, UInt32(volume), 0))
   }
 
   func noteOff(channel: Int, note: UInt8) {
-    print("- \(note)@\(channel)")
     let noteCommand = UInt32(0x80 | channel)
     let pitch = UInt32(note)
     checkError(osstatus: MusicDeviceMIDIEvent(

@@ -15,7 +15,6 @@
 		91858F962AB9E9C100A5CC5E /* dulceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91858F952AB9E9C100A5CC5E /* dulceUITests.swift */; };
 		91858F982AB9E9C100A5CC5E /* dulceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91858F972AB9E9C100A5CC5E /* dulceUITestsLaunchTests.swift */; };
 		91D0465E2ABA222300C502C3 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0465D2ABA222300C502C3 /* Notes.swift */; };
-		91D046632ABB890400C502C3 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91D046622ABB890400C502C3 /* AudioKit */; };
 		91D046652ABB891500C502C3 /* MyMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D046642ABB891500C502C3 /* MyMidi.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91D046632ABB890400C502C3 /* AudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +158,6 @@
 			);
 			name = dulce;
 			packageProductDependencies = (
-				91D046622ABB890400C502C3 /* AudioKit */,
 			);
 			productName = dulce;
 			productReference = 91858F772AB9E9BF00A5CC5E /* dulce.app */;
@@ -235,7 +232,6 @@
 			);
 			mainGroup = 91858F6E2AB9E9BF00A5CC5E;
 			packageReferences = (
-				91D046612ABB890400C502C3 /* XCRemoteSwiftPackageReference "AudioKit" */,
 			);
 			productRefGroup = 91858F782AB9E9BF00A5CC5E /* Products */;
 			projectDirPath = "";
@@ -614,25 +610,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		91D046612ABB890400C502C3 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AudioKit/AudioKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.6.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		91D046622ABB890400C502C3 /* AudioKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 91D046612ABB890400C502C3 /* XCRemoteSwiftPackageReference "AudioKit" */;
-			productName = AudioKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91858F6F2AB9E9BF00A5CC5E /* Project object */;
 }
